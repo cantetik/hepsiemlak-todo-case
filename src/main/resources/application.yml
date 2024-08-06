@@ -1,0 +1,15 @@
+couchbase:
+  connection-string: ${CB_CONNECTION_STRING}
+  username: ${CB_USERNAME}
+  password: ${CB_PASSWORD}
+  bucket-user:
+    name: ${BUCKET_USER}
+  bucket-todo:
+    name: ${BUCKET_TODO}
+  bucket-token:
+    name: ${BUCKET_TOKEN}
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: ${JWT_EXPIRATION}
+  refresh-expiration: ${JWT_REFRESH_EXPIRATION}

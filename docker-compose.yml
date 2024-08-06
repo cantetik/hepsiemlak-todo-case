@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  couchbase:
+    image: couchbase:latest
+    container_name: couchbase
+    ports:
+      - "8091:8091"
+      - "8092:8092"
+      - "8093:8093"
+      - "11210:11210"
+    environment:
+      - COUCHBASE_ADMIN_USERNAME=
+      - COUCHBASE_ADMIN_PASSWORD=
+      - COUCHBASE_BUCKET=
+    networks:
+      - my-network
+    volumes:
+      - couchbase_data:/opt/couchbase/var
+
+  app:
+    image: todo-app
+    container_name: todo-app
+    environment:
+      - CB_CONNECTION_STRING=
+      - CB_BUCKET=
+      - CB_USERNAME=
+      - CB_PASSWORD=
+      - BUCKET_TODO=
+      - BUCKET_TOKEN=
+      - BUCKET_USER=
+      - JWT_EXPIRATION=
+      - JWT_REFRESH_EXPIRATION=
+      - JWT_SECRET=
+
+    ports:
+      - "8080:8080"
+    depends_on:
+      - couchbase
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
+
+volumes:
+  couchbase_data:
