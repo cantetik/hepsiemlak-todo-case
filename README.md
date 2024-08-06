@@ -22,8 +22,8 @@ This project is a simple TO-DO application where users can register and create t
 First, clone the project from Github:
 
 ```bash
-git clone <repo-url>
-cd <repo-directory>
+git clone https://github.com/cantetik/hepsiemlak-todo-case.git
+cd hepsiemlak-todo-case
 ```
 
 ### 2. Install Dependencies
